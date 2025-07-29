@@ -1,3 +1,90 @@
-# Literature
+# ¿Qué es Tidyverse?
 
-Here is a review of existing methods.
+El **Tidyverse** es una colección de paquetes en R diseñados para la ciencia de datos. Permite leer, transformar, visualizar y analizar datos de forma clara y coherente.
+
+Incluye varios paquetes, pero los más comunes son:
+
+* `readr` y `readxl` para importar datos
+* `dplyr` para manipular tablas
+* `ggplot2` para visualización
+* `tidyr` para ordenar datos
+* `tibble` para trabajar con data frames modernos
+
+## El pipe `%>%`
+
+Uno de los elementos clave del tidyverse es el **pipe** (`%>%`), que permite encadenar funciones de manera clara y secuencial.
+
+Por ejemplo:
+
+```{r}
+library(tidyverse)
+mtcars %>%
+  head()
+```
+
+## Verbos principales de `dplyr`
+
+`dplyr` usa una gramática simple para transformar tablas. Sus verbos principales son:
+
+* `filter()` – selecciona filas
+* `select()` – selecciona columnas
+* `mutate()` – crea nuevas columnas
+* `summarise()` – resume información
+* `group_by()` – agrupa datos (usualmente usado con `summarise()`)
+
+## Ejemplo con tabla interna de R: `mtcars`
+
+```{r}
+# Ver las primeras filas
+mtcars %>% 
+  head()
+
+# Seleccionar columnas específicas
+mtcars %>%
+  select(mpg, cyl, hp)
+
+# Filtrar autos con más de 100 caballos de fuerza
+mtcars %>%
+  filter(hp > 100)
+
+# Crear una nueva columna
+mtcars %>%
+  mutate(kpl = mpg * 0.425)
+
+# Calcular el promedio de millas por galón por número de cilindros
+mtcars %>%
+  group_by(cyl) %>%
+  summarise(prom_mpg = mean(mpg))
+```
+
+## Importar una tabla de Excel
+
+Para importar datos desde Excel usamos el paquete `readxl`:
+
+```{r}
+library(readxl)
+# Cargar archivo de Excel (reemplaza con la ruta real)
+datos <- read_excel("ejemplo_datos.xlsx")
+
+# Ver los primeros datos
+head(datos)
+```
+
+## Filtrar o buscar datos específicos
+
+```{r}
+# Filtrar filas donde la columna 'nombre' es 'Juan'
+datos %>%
+  filter(nombre == "Juan")
+
+# Buscar filas que contienen 'agua' en la columna 'descripcion'
+datos %>%
+  filter(str_detect(descripcion, "agua"))
+```
+
+## Cierre
+
+Con estas herramientas básicas puedes comenzar a trabajar tus propios datos usando tidyverse.
+
+Recuerda: la práctica y la curiosidad son claves para aprender.
+
