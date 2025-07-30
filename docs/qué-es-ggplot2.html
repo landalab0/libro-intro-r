@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 ¿Qué es ggplot2? | Bienvenid@s al Taller de Introducción a R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 ¿Qué es ggplot2? | Bienvenid@s al Taller de Introducción a R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 ¿Qué es ggplot2? | Bienvenid@s al Taller de Introducción a R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="LandaLab :)" />
+
+
+<meta name="date" content="2025-07-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="qué-es-tidyverse.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 🧪 Bienvenid@s</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#sobre-el-taller"><i class="fa fa-check"></i><b>1.1</b> 📚 Sobre el taller</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#qué-aprenderás"><i class="fa fa-check"></i><b>1.2</b> 🧰 ¿Qué aprenderás?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#estructura-del-repositorio"><i class="fa fa-check"></i><b>1.3</b> 📁 Estructura del repositorio</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#plataforma"><i class="fa fa-check"></i><b>1.4</b> 🌐 Plataforma</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i><b>1.5</b> 🙌 Agradecimientos</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#dudas-o-comentarios"><i class="fa fa-check"></i><b>1.6</b> 💬 ¿Dudas o comentarios?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html"><i class="fa fa-check"></i><b>2</b> CONOCIENDO A R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#contenido"><i class="fa fa-check"></i><b>2.1</b> Contenido</a></li>
+<li class="chapter" data-level="2.2" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#qué-es-r"><i class="fa fa-check"></i><b>2.2</b> ¿Qué es R?🤨</a></li>
+<li class="chapter" data-level="2.3" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#ventajas-de-trabajar-con-r"><i class="fa fa-check"></i><b>2.3</b> Ventajas de trabajar con R</a></li>
+<li class="chapter" data-level="2.4" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#qué-es-r-studio"><i class="fa fa-check"></i><b>2.4</b> ¿Qué es R Studio?</a></li>
+<li class="chapter" data-level="2.5" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#y-si-aún-no-tengo-r"><i class="fa fa-check"></i><b>2.5</b> ¿Y si aún no tengo R?🥲</a></li>
+<li class="chapter" data-level="2.6" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#descubriendo-rstudio"><i class="fa fa-check"></i><b>2.6</b> Descubriendo RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#tener-un-diálogo-con-r"><i class="fa fa-check"></i><b>2.7</b> Tener un diálogo con R</a></li>
+<li class="chapter" data-level="2.8" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#tipos-de-datos"><i class="fa fa-check"></i><b>2.8</b> Tipos de datos</a></li>
+<li class="chapter" data-level="2.9" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#estructuras-de-datos"><i class="fa fa-check"></i><b>2.9</b> Estructuras de datos</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#vector"><i class="fa fa-check"></i><b>2.9.1</b> 🟢 Vector</a></li>
+<li class="chapter" data-level="2.9.2" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#factor"><i class="fa fa-check"></i><b>2.9.2</b> 🟡 Factor</a></li>
+<li class="chapter" data-level="2.9.3" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#lista"><i class="fa fa-check"></i><b>2.9.3</b> 🟣 Lista</a></li>
+<li class="chapter" data-level="2.9.4" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#matriz"><i class="fa fa-check"></i><b>2.9.4</b> 🟠 Matriz</a></li>
+<li class="chapter" data-level="2.9.5" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#data-frame"><i class="fa fa-check"></i><b>2.9.5</b> 🔵 Data Frame</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="qué-es-tidyverse.html"><a href="qué-es-tidyverse.html"><i class="fa fa-check"></i><b>3</b> ¿Qué es Tidyverse?</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="qué-es-tidyverse.html"><a href="qué-es-tidyverse.html#el-pipe"><i class="fa fa-check"></i><b>3.1</b> El pipe <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="3.2" data-path="qué-es-tidyverse.html"><a href="qué-es-tidyverse.html#verbos-principales-de-dplyr"><i class="fa fa-check"></i><b>3.2</b> Verbos principales de <code>dplyr</code></a></li>
+<li class="chapter" data-level="3.3" data-path="qué-es-tidyverse.html"><a href="qué-es-tidyverse.html#ejemplo-con-tabla-interna-de-r-mtcars"><i class="fa fa-check"></i><b>3.3</b> Ejemplo con tabla interna de R: <code>mtcars</code></a></li>
+<li class="chapter" data-level="3.4" data-path="qué-es-tidyverse.html"><a href="qué-es-tidyverse.html#importar-una-tabla-de-excel"><i class="fa fa-check"></i><b>3.4</b> Importar una tabla de Excel</a></li>
+<li class="chapter" data-level="3.5" data-path="qué-es-tidyverse.html"><a href="qué-es-tidyverse.html#filtrar-o-buscar-datos-específicos"><i class="fa fa-check"></i><b>3.5</b> Filtrar o buscar datos específicos</a></li>
+<li class="chapter" data-level="3.6" data-path="qué-es-tidyverse.html"><a href="qué-es-tidyverse.html#cierre"><i class="fa fa-check"></i><b>3.6</b> Cierre</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="qué-es-ggplot2.html"><a href="qué-es-ggplot2.html"><i class="fa fa-check"></i><b>4</b> ¿Qué es <code>ggplot2</code>?</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="qué-es-ggplot2.html"><a href="qué-es-ggplot2.html#añadir-color-por-cilindros"><i class="fa fa-check"></i><b>4.1</b> Añadir color por cilindros</a></li>
+<li class="chapter" data-level="4.2" data-path="qué-es-ggplot2.html"><a href="qué-es-ggplot2.html#cambiar-tipo-de-gráfico-líneas-boxplots-histogramas"><i class="fa fa-check"></i><b>4.2</b> Cambiar tipo de gráfico: líneas, boxplots, histogramas</a></li>
+<li class="chapter" data-level="4.3" data-path="qué-es-ggplot2.html"><a href="qué-es-ggplot2.html#conclusión"><i class="fa fa-check"></i><b>4.3</b> Conclusión</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><a href="mailto:Bienvenid@s" class="email">Bienvenid@s</a> al Taller de Introducción a R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="qué-es-ggplot2" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> ¿Qué es <code>ggplot2</code>?<a href="qué-es-ggplot2.html#qué-es-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><code>ggplot2</code> es un paquete del <strong>Tidyverse</strong> para crear visualizaciones de datos de forma elegante, flexible y basada en una gramática clara.</p>
+<p>La estructura básica de un gráfico en <code>ggplot2</code> es:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="qué-es-ggplot2.html#cb44-1" tabindex="-1"></a><span class="fu">ggplot</span>(data) <span class="sc">+</span></span>
+<span id="cb44-2"><a href="qué-es-ggplot2.html#cb44-2" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ..., <span class="at">y =</span> ...) <span class="sc">+</span></span>
+<span id="cb44-3"><a href="qué-es-ggplot2.html#cb44-3" tabindex="-1"></a>  geom_...</span></code></pre></div>
+<p>Donde:</p>
+<ul>
+<li><code>ggplot(data)</code> indica el dataset</li>
+<li><code>aes()</code> define los ejes o variables estéticas (x, y, color, etc.)</li>
+<li><code>geom_*</code> determina el tipo de gráfico</li>
+</ul>
+<p>Primer gráfico: <code>mtcars</code></p>
+<p>Usamos el dataset <code>mtcars</code>, disponible por defecto en R.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="qué-es-ggplot2.html#cb45-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb45-2"><a href="qué-es-ggplot2.html#cb45-2" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="qué-es-ggplot2.html#cb45-3" tabindex="-1"></a><span class="co"># Gráfico de dispersión: peso vs. millas por galón</span></span>
+<span id="cb45-4"><a href="qué-es-ggplot2.html#cb45-4" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span></span>
+<span id="cb45-5"><a href="qué-es-ggplot2.html#cb45-5" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg) <span class="sc">+</span></span>
+<span id="cb45-6"><a href="qué-es-ggplot2.html#cb45-6" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div id="añadir-color-por-cilindros" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Añadir color por cilindros<a href="qué-es-ggplot2.html#añadir-color-por-cilindros" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Podemos mejorar el gráfico agregando color:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="qué-es-ggplot2.html#cb46-1" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span></span>
+<span id="cb46-2"><a href="qué-es-ggplot2.html#cb46-2" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg, <span class="at">color =</span> <span class="fu">factor</span>(cyl)) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="qué-es-ggplot2.html#cb46-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb46-4"><a href="qué-es-ggplot2.html#cb46-4" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb46-5"><a href="qué-es-ggplot2.html#cb46-5" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Relación entre peso y rendimiento de autos&quot;</span>,</span>
+<span id="cb46-6"><a href="qué-es-ggplot2.html#cb46-6" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Peso (wt)&quot;</span>,</span>
+<span id="cb46-7"><a href="qué-es-ggplot2.html#cb46-7" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Millas por galón (mpg)&quot;</span>,</span>
+<span id="cb46-8"><a href="qué-es-ggplot2.html#cb46-8" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Cilindros&quot;</span></span>
+<span id="cb46-9"><a href="qué-es-ggplot2.html#cb46-9" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb46-10"><a href="qué-es-ggplot2.html#cb46-10" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+</div>
+<div id="cambiar-tipo-de-gráfico-líneas-boxplots-histogramas" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Cambiar tipo de gráfico: líneas, boxplots, histogramas<a href="qué-es-ggplot2.html#cambiar-tipo-de-gráfico-líneas-boxplots-histogramas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Algunos ejemplos rápidos:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="qué-es-ggplot2.html#cb47-1" tabindex="-1"></a><span class="co"># Histograma de millas por galón</span></span>
+<span id="cb47-2"><a href="qué-es-ggplot2.html#cb47-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span></span>
+<span id="cb47-3"><a href="qué-es-ggplot2.html#cb47-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> mpg) <span class="sc">+</span></span>
+<span id="cb47-4"><a href="qué-es-ggplot2.html#cb47-4" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="qué-es-ggplot2.html#cb48-1" tabindex="-1"></a><span class="co"># Boxplot de mpg por número de cilindros</span></span>
+<span id="cb48-2"><a href="qué-es-ggplot2.html#cb48-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span></span>
+<span id="cb48-3"><a href="qué-es-ggplot2.html#cb48-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">y =</span> mpg) <span class="sc">+</span></span>
+<span id="cb48-4"><a href="qué-es-ggplot2.html#cb48-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;skyblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb48-5"><a href="qué-es-ggplot2.html#cb48-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Cilindros&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Millas por galón&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-2.png" width="672" /></p>
+</div>
+<div id="conclusión" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Conclusión<a href="qué-es-ggplot2.html#conclusión" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>ggplot2</code> te permite explorar datos de forma gráfica y reproducible.
+Con solo cambiar el tipo de <code>geom_*</code> puedes obtener visualizaciones potentes para entender mejor tus datos.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="qué-es-tidyverse.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-method.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

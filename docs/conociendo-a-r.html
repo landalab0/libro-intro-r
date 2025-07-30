@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 CONOCIENDO A R | Bienvenid@s al Taller de Introducción a R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 CONOCIENDO A R | Bienvenid@s al Taller de Introducción a R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 CONOCIENDO A R | Bienvenid@s al Taller de Introducción a R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="LandaLab :)" />
+
+
+<meta name="date" content="2025-07-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="qué-es-tidyverse.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 🧪 Bienvenid@s</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#sobre-el-taller"><i class="fa fa-check"></i><b>1.1</b> 📚 Sobre el taller</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#qué-aprenderás"><i class="fa fa-check"></i><b>1.2</b> 🧰 ¿Qué aprenderás?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#estructura-del-repositorio"><i class="fa fa-check"></i><b>1.3</b> 📁 Estructura del repositorio</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#plataforma"><i class="fa fa-check"></i><b>1.4</b> 🌐 Plataforma</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i><b>1.5</b> 🙌 Agradecimientos</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#dudas-o-comentarios"><i class="fa fa-check"></i><b>1.6</b> 💬 ¿Dudas o comentarios?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html"><i class="fa fa-check"></i><b>2</b> CONOCIENDO A R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#contenido"><i class="fa fa-check"></i><b>2.1</b> Contenido</a></li>
+<li class="chapter" data-level="2.2" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#qué-es-r"><i class="fa fa-check"></i><b>2.2</b> ¿Qué es R?🤨</a></li>
+<li class="chapter" data-level="2.3" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#ventajas-de-trabajar-con-r"><i class="fa fa-check"></i><b>2.3</b> Ventajas de trabajar con R</a></li>
+<li class="chapter" data-level="2.4" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#qué-es-r-studio"><i class="fa fa-check"></i><b>2.4</b> ¿Qué es R Studio?</a></li>
+<li class="chapter" data-level="2.5" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#y-si-aún-no-tengo-r"><i class="fa fa-check"></i><b>2.5</b> ¿Y si aún no tengo R?🥲</a></li>
+<li class="chapter" data-level="2.6" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#descubriendo-rstudio"><i class="fa fa-check"></i><b>2.6</b> Descubriendo RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#tener-un-diálogo-con-r"><i class="fa fa-check"></i><b>2.7</b> Tener un diálogo con R</a></li>
+<li class="chapter" data-level="2.8" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#tipos-de-datos"><i class="fa fa-check"></i><b>2.8</b> Tipos de datos</a></li>
+<li class="chapter" data-level="2.9" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#estructuras-de-datos"><i class="fa fa-check"></i><b>2.9</b> Estructuras de datos</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#vector"><i class="fa fa-check"></i><b>2.9.1</b> 🟢 Vector</a></li>
+<li class="chapter" data-level="2.9.2" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#factor"><i class="fa fa-check"></i><b>2.9.2</b> 🟡 Factor</a></li>
+<li class="chapter" data-level="2.9.3" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#lista"><i class="fa fa-check"></i><b>2.9.3</b> 🟣 Lista</a></li>
+<li class="chapter" data-level="2.9.4" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#matriz"><i class="fa fa-check"></i><b>2.9.4</b> 🟠 Matriz</a></li>
+<li class="chapter" data-level="2.9.5" data-path="conociendo-a-r.html"><a href="conociendo-a-r.html#data-frame"><i class="fa fa-check"></i><b>2.9.5</b> 🔵 Data Frame</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="qué-es-tidyverse.html"><a href="qué-es-tidyverse.html"><i class="fa fa-check"></i><b>3</b> ¿Qué es Tidyverse?</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="qué-es-tidyverse.html"><a href="qué-es-tidyverse.html#el-pipe"><i class="fa fa-check"></i><b>3.1</b> El pipe <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="3.2" data-path="qué-es-tidyverse.html"><a href="qué-es-tidyverse.html#verbos-principales-de-dplyr"><i class="fa fa-check"></i><b>3.2</b> Verbos principales de <code>dplyr</code></a></li>
+<li class="chapter" data-level="3.3" data-path="qué-es-tidyverse.html"><a href="qué-es-tidyverse.html#ejemplo-con-tabla-interna-de-r-mtcars"><i class="fa fa-check"></i><b>3.3</b> Ejemplo con tabla interna de R: <code>mtcars</code></a></li>
+<li class="chapter" data-level="3.4" data-path="qué-es-tidyverse.html"><a href="qué-es-tidyverse.html#importar-una-tabla-de-excel"><i class="fa fa-check"></i><b>3.4</b> Importar una tabla de Excel</a></li>
+<li class="chapter" data-level="3.5" data-path="qué-es-tidyverse.html"><a href="qué-es-tidyverse.html#filtrar-o-buscar-datos-específicos"><i class="fa fa-check"></i><b>3.5</b> Filtrar o buscar datos específicos</a></li>
+<li class="chapter" data-level="3.6" data-path="qué-es-tidyverse.html"><a href="qué-es-tidyverse.html#cierre"><i class="fa fa-check"></i><b>3.6</b> Cierre</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="qué-es-ggplot2.html"><a href="qué-es-ggplot2.html"><i class="fa fa-check"></i><b>4</b> ¿Qué es <code>ggplot2</code>?</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="qué-es-ggplot2.html"><a href="qué-es-ggplot2.html#añadir-color-por-cilindros"><i class="fa fa-check"></i><b>4.1</b> Añadir color por cilindros</a></li>
+<li class="chapter" data-level="4.2" data-path="qué-es-ggplot2.html"><a href="qué-es-ggplot2.html#cambiar-tipo-de-gráfico-líneas-boxplots-histogramas"><i class="fa fa-check"></i><b>4.2</b> Cambiar tipo de gráfico: líneas, boxplots, histogramas</a></li>
+<li class="chapter" data-level="4.3" data-path="qué-es-ggplot2.html"><a href="qué-es-ggplot2.html#conclusión"><i class="fa fa-check"></i><b>4.3</b> Conclusión</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><a href="mailto:Bienvenid@s" class="email">Bienvenid@s</a> al Taller de Introducción a R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="conociendo-a-r" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> CONOCIENDO A R<a href="conociendo-a-r.html#conociendo-a-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="contenido" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Contenido<a href="conociendo-a-r.html#contenido" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En esta unidad, conoceremos una una herramienta <em>R</em> , la instalación del programa y funciones que podemos llevar a cabo con herramientas que este programa nos proporciona.</p>
+</div>
+<div id="qué-es-r" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> ¿Qué es R?🤨<a href="conociendo-a-r.html#qué-es-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Es un lenguaje de programación de software libre, que funciona en sistemas operativos como Windows, MacOS y linux. (<a href="https://www.universidadviu.com/es/actualidad/nuestros-expertos/lenguaje-de-programacion-r-que-es-caracteristicas-e-importancia-en-el-big-data">Universidad Intyernacional de Valencia,2023</a>)
+R está especializado en informática estadística y gráfica.</p>
+</div>
+<div id="ventajas-de-trabajar-con-r" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Ventajas de trabajar con R<a href="conociendo-a-r.html#ventajas-de-trabajar-con-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>El código R es reproducible</li>
+<li>R produce gráficos de alta calidad</li>
+<li>R tiene una gran comunidad</li>
+<li>R es interdisciplinario</li>
+<li>R funciona con datos de todos los colores y tamaños.</li>
+<li>¡R es gratis!</li>
+</ul>
+</div>
+<div id="qué-es-r-studio" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> ¿Qué es R Studio?<a href="conociendo-a-r.html#qué-es-r-studio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>RStudio es un entorno de desarrolllo integrado (IDE por sus siglas en inglés) para R, que facilita la tarea de uso interactivo de R y la programación de scripts. Proporciona una iinterfaz de usuario amigable que facilita la escritura, depurado y la visualización de código R.</p>
+</div>
+<div id="y-si-aún-no-tengo-r" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> ¿Y si aún no tengo R?🥲<a href="conociendo-a-r.html#y-si-aún-no-tengo-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>No te preocupes, solo seguiremos unos cuantos pasos para poder instalarlo.</p>
+<p>Primero instalaremos R:
+<a href="https://cran.rstudio.com/" class="uri">https://cran.rstudio.com/</a></p>
+<p>Entraremos al link y seleccionaremos la descarga para nuestro sistema operativo.</p>
+<div class="float">
+<img src="https://github.com/landalab0/IntroduccionBioinformaticaLinux/assets/160524982/fafc53fa-095f-4cee-8238-1073f1a77324" alt="Pink and beige Data Visualization Basics modern presentation" />
+<div class="figcaption">Pink and beige Data Visualization Basics modern presentation</div>
+</div>
+<p>Cuando lo hayamos elegido seleccionaremos la opción <em>intall R for the first time</em> y después lo podremos descargar.</p>
+<p>Después podremos descargar R Studio:
+<a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></p>
+</div>
+<div id="descubriendo-rstudio" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Descubriendo RStudio<a href="conociendo-a-r.html#descubriendo-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Después de instalar RStudio, podemos abrirlo y lo que nos encontraremos son cuatro páneles de trabajo.
+1. Consola: se encuentra en la esquina inferiror izquierda: es el lugar en donde R está esperando a que le digas que hacer. En ella se puede escribir, ejecutar código y ver los resultados de lo que se va ejecutando.
+2. Editor de código: ubicado en la esquina superior izquierda. En este panel se abren los archivos en pestañas.
+3. Environment/History:
+4. Files/Plots/Packages/Help:</p>
+</div>
+<div id="tener-un-diálogo-con-r" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Tener un diálogo con R<a href="conociendo-a-r.html#tener-un-diálogo-con-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Existen dos formas con las que podemos interactuar con R en RStudio:
+- Usando la consola.
+- Creación y edición de archivos de script.</p>
+<p>La <strong>consola</strong> es en donde se pueden escribir y ejecutar comandos inmediatamente, asímismo aquí se mostraran los resultados de los comandos ejecutados.</p>
+<p>Si R está listo para aceptar comandos, la consola mostrará el “<strong>&gt;</strong>” mensaje. Puedes escribir instrucciones directamente en la consola y presionar <strong>Enter</strong>, pero se olvidarán cuando cierre la sesión.</p>
+<p>Sabemos que los humanos olvidamos muchas cosas, por lo tanto, es importante hacer anotaciones para no olvidar. En en el caso de R, podemos hacer comentarios poniendo “<strong>#</strong>” antes del texto, y con esto podríamos recordarr porque escribimos un comando en nuestro script.</p>
+<p><strong>getwd</strong> nos mostrará el directorio de trabajo</p>
+</div>
+<div id="tipos-de-datos" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Tipos de datos<a href="conociendo-a-r.html#tipos-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Hay 5 tipos de datos en RStudio
+- Numérico (numeric o double): numeros enteros como decimales.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="conociendo-a-r.html#cb2-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb2-2"><a href="conociendo-a-r.html#cb2-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fl">3.14</span></span></code></pre></div>
+<ul>
+<li>Enteros (integer): Representa números enteros</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="conociendo-a-r.html#cb3-1" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">5</span><span class="dt">L</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<ul>
+<li>Lógicos (logical): True or False</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="conociendo-a-r.html#cb5-1" tabindex="-1"></a><span class="fu">typeof</span>(<span class="st">&quot;addition&quot;</span> <span class="sc">==</span> <span class="st">&quot;subtraction&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<ul>
+<li>Caracteres (character): Secuencias de caracteres, como texto. Los caracteres representan variables cualitativas, en R todo texto debe estar escrito entre comillas (“” o ’’).</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="conociendo-a-r.html#cb7-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="st">&quot;4 and 3 are not the same on Earth. On Mars maybe... &quot;</span></span>
+<span id="cb7-2"><a href="conociendo-a-r.html#cb7-2" tabindex="-1"></a><span class="fu">typeof</span>(result)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<ul>
+<li>Complejos: Números complejos con partes real e imaginaria.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="conociendo-a-r.html#cb9-1" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">72</span><span class="sc">+</span><span class="dv">5</span><span class="dt">i</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;complex&quot;</code></pre>
+<p>R provee varias funciones para examinar las características de los objetos que creamos.</p>
+<p><strong>class()</strong> : ¿qué tipo de objeto es?</p>
+<p><strong>typeof()</strong> : ¿qué tipo de dato es?</p>
+<p><strong>length()</strong> : ¿de que tamaño es (cuantos elementos tienen los vectores y listas)?</p>
+<p><strong>attributes()</strong> : ¿tiene el objeto algún metadato?</p>
+</div>
+<div id="estructuras-de-datos" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Estructuras de datos<a href="conociendo-a-r.html#estructuras-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Existen diferentes maneras de organizar los datos en R llamados <strong>estructuras de datos</strong>.</p>
+<p>Las colecciones o conjunto de datos en R se organizan por su dimensión (1, 2, o varias dimensiones) y si son homogéneas (todos los objetos deben ser del mismo tipo) o heterogéneas ( el contenido puede ser de diferentes tipos).Las más utilizadas son:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Dimensión</th>
+<th>Homogénea</th>
+<th>Heterogénea</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Vector</td>
+<td>Lista</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Matriz</td>
+<td>Data Frame</td>
+</tr>
+<tr class="odd">
+<td>n</td>
+<td>Array</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="vector" class="section level3 hasAnchor" number="2.9.1">
+<h3><span class="header-section-number">2.9.1</span> 🟢 Vector<a href="conociendo-a-r.html#vector" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La estructura de datos más simple es el vector, que es una secuencia de datos del mismo tipo. Podemos crear un vestor usando la función “<strong>c()</strong>” que signifca concatenar o combinar.</p>
+<p><em>Input</em></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="conociendo-a-r.html#cb11-1" tabindex="-1"></a>char_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;c&quot;</span>)</span>
+<span id="cb11-2"><a href="conociendo-a-r.html#cb11-2" tabindex="-1"></a><span class="fu">typeof</span>(char_vector)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p><em>Output</em></p>
+</div>
+<div id="factor" class="section level3 hasAnchor" number="2.9.2">
+<h3><span class="header-section-number">2.9.2</span> 🟡 Factor<a href="conociendo-a-r.html#factor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El factor es una estructura más compleja, que contiene los nombres de categorías (llamadas niveles) y una secuencia de las ocurrencias de esas categorías.</p>
+<p><em>Input</em></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="conociendo-a-r.html#cb13-1" tabindex="-1"></a>char_factor <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(char_vector)</span>
+<span id="cb13-2"><a href="conociendo-a-r.html#cb13-2" tabindex="-1"></a>char_factor</span></code></pre></div>
+<pre><code>## [1] a a b b c c
+## Levels: a b c</code></pre>
+<p><em>Output</em></p>
+<p>Y si queremos sabwe la estructura de este objeto, pondríamos:</p>
+<p><em>Input</em></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="conociendo-a-r.html#cb15-1" tabindex="-1"></a><span class="fu">str</span>(char_factor)</span></code></pre></div>
+<pre><code>##  Factor w/ 3 levels &quot;a&quot;,&quot;b&quot;,&quot;c&quot;: 1 1 2 2 3 3</code></pre>
+<p><em>Output</em></p>
+<p>Podemos ver los niveles de los factores y la secuencia de números. Cada número representa un nivel, y esta secuencia contiene la información sobre qué va en cada posición. Por eso obtendremos un “entero” si preguntamos por el tipo de datos del objeto.</p>
+<p><em>Input</em></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="conociendo-a-r.html#cb17-1" tabindex="-1"></a><span class="fu">typeof</span>(char_factor)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p><em>Output</em></p>
+<p>Los factores son la mejor manera para organizar datos categóricos.</p>
+</div>
+<div id="lista" class="section level3 hasAnchor" number="2.9.3">
+<h3><span class="header-section-number">2.9.3</span> 🟣 Lista<a href="conociendo-a-r.html#lista" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A diferencia de una vector, la lista es el conjunto de elementos de distinto tipo.</p>
+<p>Se crean con la función <strong>list</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="conociendo-a-r.html#cb19-1" tabindex="-1"></a>lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">nombre =</span> <span class="st">&quot;Juan&quot;</span>, <span class="at">edad =</span> <span class="dv">30</span>, <span class="at">casado =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
+<div id="matriz" class="section level3 hasAnchor" number="2.9.4">
+<h3><span class="header-section-number">2.9.4</span> 🟠 Matriz<a href="conociendo-a-r.html#matriz" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Es una estructura bidimensional con filas y columnas, donde todos los elementos son del mismo tipo.</p>
+<p>La función <strong>matrix()</strong> permite crear matrices</p>
+<p>#Crear una matriz</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="conociendo-a-r.html#cb20-1" tabindex="-1"></a>matriz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code></pre></div>
+</div>
+<div id="data-frame" class="section level3 hasAnchor" number="2.9.5">
+<h3><span class="header-section-number">2.9.5</span> 🔵 Data Frame<a href="conociendo-a-r.html#data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Es una estructura de datos bidimensional similar a una matriz, pero funciona distinto. Un data frame es una lista de vectores de la misma longitud, permite tipos de datos mixtos. Esto permite almacenar diferentes tipos de variables.
+Cada columna puede contener distintos tipos de datos.</p>
+<p>#Crear un data frame</p>
+<p><em>Input</em></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="conociendo-a-r.html#cb21-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb21-2"><a href="conociendo-a-r.html#cb21-2" tabindex="-1"></a>  <span class="at">nombre =</span> <span class="fu">c</span>(<span class="st">&quot;Juan&quot;</span>, <span class="st">&quot;María&quot;</span>, <span class="st">&quot;Pedro&quot;</span>),</span>
+<span id="cb21-3"><a href="conociendo-a-r.html#cb21-3" tabindex="-1"></a>  <span class="at">edad =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">25</span>, <span class="dv">35</span>),</span>
+<span id="cb21-4"><a href="conociendo-a-r.html#cb21-4" tabindex="-1"></a>  <span class="at">casado =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>))</span></code></pre></div>
+<p>#Ver el data frame</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="conociendo-a-r.html#cb22-1" tabindex="-1"></a><span class="fu">print</span>(df)</span></code></pre></div>
+<pre><code>##   nombre edad casado
+## 1   Juan   30   TRUE
+## 2  María   25  FALSE
+## 3  Pedro   35   TRUE</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="qué-es-tidyverse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
